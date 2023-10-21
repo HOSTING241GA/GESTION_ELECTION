@@ -1,0 +1,28 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: db_election
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=@1teRnet!
+    ports:
+      - "5432:5432"
+   
+
+  pg-admin:
+    image: dpage/pgadmin4:6
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@ges.com
+      - PGADMIN_DEFAULT_PASSWORD=@1teRnet!
+      - PGADMIN_LISTEN_PORT=5050
+
+    ports:
+      - "5050:5050"
+
+  app-gestionelection:
+    image: app_gestion_election
+    ports:
+      -"8080:8080"
+
+
